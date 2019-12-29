@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geistesblitz</title>
+<link rel="shortcut icon" href="icon.ico">
+<style>
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+.header {
+    background-color: #9933cc;
+    color: #ffffff;
+    padding: 15px;
+}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #33b5e5;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.menu li:hover {
+    background-color: #0099cc;
+}
+.aside {
+    background-color: #33b5e5;
+    padding: 15px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.footer {
+    background-color: #0099cc;
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px;
+}
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+		padding: 5px 15px;
+    }
+	
+	h1{
+		margin: 0;
+		font-size: 15px;
+	}
+	
+	.menu{
+		display: none;
+	}
+	
+	.footer p{
+		margin: 0;
+		font-size: 15px;
+	}
+	
+}
+
+
+/* GEISTBLITZ */
+
+body{
+	background-color: lightblue;
+}
+
+.card{
+	background-color: white;
+	border: black solid 2px;
+	border-radius: 25px;
+	margin: auto;
+	height: 300px;
+	width: 200px;
+}
+
+.screen{
+	background-color: yellow;
+	border: black solid 2px;
+	border-radius: 25px;
+	margin: 10px auto;
+	height: 280px;
+	width: 180px;
+}
+
+.screen img{
+	height: 100%;
+	width: 100%;
+}
+
+#game{
+	display: none;
+}
+
+#fin{
+	display: none;
+}
+
+.button{
+	background-color: navy;
+	border: black solid 0px;
+	border-radius: 25px;
+	color: white;
+	font-size: 25px;
+	margin: 0 20px;
+	padding: 10px;
+	text-align: center;
+}
+
+#start{
+	margin-top: 100px;
+}
+
+#retry{
+	margin-top: 80px;
+}
+
+#score{
+	margin-top: 20px;
+}
+
+.item{
+	background-color: yellow;
+	border: black solid 3px;
+	border-radius: 10px;
+	display: inline;
+	font-size: 20px;
+	float: left;
+	margin: 5px;
+	padding: 10px;
+	height : 80px;
+	width : 80px;
+}
+.item img{
+	height: 100%;
+	width: 100%;
+}
+
+.pannel{
+	padding: 0 20px;
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class="header">
+  <h1>GEISTESBLITZ</h1>
+</div>
+
+<div class="row">
+
+<div class="col-2 menu">
+
+</div>
+
+<div class="col-4">
+  <div class="card">
+		<div id="home" class="screen" >
+			<div id="start" class="button" onclick="start();" >START</div>
+		</div>
+
+		<div id="game" class="screen">
+			
+		</div>
+		
+		<div id="fin" class="screen">
+			<div id="retry" class="button" onclick="retry();">RETRY</div>
+			<div id="score" class="button">SCORE:0</div>
+		</div>
+	</div>	
+</div>
+
+<div class="col-6 right">
+	<div class="pannel">
+		<div id="ghost" class="item" onclick="press(1);"><img src="img/1.png"></img></div>
+		<div id="sofa" class="item" onclick="press(2);"><img src="img/2.png"></img></div>
+		<div id="wine" class="item" onclick="press(3);"><img src="img/3.png"></img></div>
+		<div id="book" class="item" onclick="press(4);"><img src="img/4.png"></img></div>
+		<div id="mouse" class="item" onclick="press(5);"><img src="img/5.png"></img></div>
+	</div>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>Programmed by Samuel Pan</p>
+</div>
+
+</body>
+</html>
+
+<script language=JavaScript src="card.js"></script>
+
+<script>
+
+var p = 0;
+var s = 0;
+var a = 0;
+var t = 0;
+var r = 0;
+
+var home = document.getElementById("home");
+var game = document.getElementById("game");
+var fin = document.getElementById("fin");
+var again = document.getElementById("again");
+var score = document.getElementById("score");
+
+var ghost = document.getElementById("ghost");
+var sofa = document.getElementById("sofa");
+var wine = document.getElementById("wine");
+var book = document.getElementById("book");
+var mouse = document.getElementById("mouse");
+
+var item = document.getElementsByClassName("item");
+
+function start(){ //新抽一張
+home.style.display = "none";
+game.style.display = "block";
+fin.style.display = "none";
+
+r = r + Math.floor(Math.random() * card_num / 2) + 1;
+r = r % card_num;
+game.innerHTML = card[r][0];
+a = card[r][1];
+t++;
+
+}
+
+function finish(){ //結束
+home.style.display = "none";
+game.style.display = "none";
+fin.style.display = "block";
+}
+
+function retry(){ //重新
+p = 0;
+s = 0;
+a = 0;
+t = 0;
+
+for (var i = 0; i < item.length; i++)
+	{item[i].style.borderColor = "black";}
+	
+score.innerHTML = "SCORE:"+s;
+
+start();
+}
+
+function showCorrect(x,y){
+
+	for (var i = 0; i < item.length; i++)
+	{item[i].style.borderColor = "black";}
+	
+		if (x == 1) {ghost.style.borderColor = "green";}
+		if (x == 2) {sofa.style.borderColor = "green";}
+		if (x == 3) {wine.style.borderColor = "green";}
+		if (x == 4) {book.style.borderColor = "green";}
+		if (x == 5) {mouse.style.borderColor = "green";}
+		
+	if (x != y)	{
+		if (y == 1) {ghost.style.borderColor = "red";}
+		if (y == 2) {sofa.style.borderColor = "red";}
+		if (y == 3) {wine.style.borderColor = "red";}
+		if (y == 4) {book.style.borderColor = "red";}
+		if (y == 5) {mouse.style.borderColor = "red";}
+	}
+	
+}
+
+function press(x){ //確認是否正確
+	p = x;
+	
+	if (p == a){showCorrect(a,p);s++;} else{showCorrect(a,p);s--;}
+	score.innerHTML = "SCORE:"+s;
+
+	if (t < 40){start();} else{finish();}
+	
+	p = 0;
+}
+</script>
