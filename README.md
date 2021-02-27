@@ -1,2 +1,2 @@
 # geistesblitz
-geistesblitz game
+[geistesblitz game](https://syhpan.github.io/geistesblitz/)
