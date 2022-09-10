@@ -19,7 +19,7 @@
 
 |First|Second|Third|Fourth|
 |-|-|-|-|
-|Ghost|White|Couch|Gray|
+|Ghost|White|Couch|Blue|
 
 ### 4253
 ![4253.png](4253.png)
