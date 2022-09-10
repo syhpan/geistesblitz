@@ -1,2 +1,5 @@
-# geistesblitz
-[geistesblitz game](https://syhpan.github.io/geistesblitz/)
+# Geistesblitz
+> https://syhpan.github.io/geistesblitz/
+
+## Preview
+![preview.png](preview.png)
