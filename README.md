@@ -1,5 +1,7 @@
 # Geistesblitz
 > https://syhpan.github.io/geistesblitz/
 
-## Preview
+### Website Preview
 ![preview.png](preview.png)
+
+Programmed by Samuel Pan
